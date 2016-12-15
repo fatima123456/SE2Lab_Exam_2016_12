@@ -19,6 +19,9 @@ paths:
       responses:
         200:
           description: the home page
+          schema:
+            type: array
+            $ref: "#/definitions/student"
           
   /searchStudent:
     post:
