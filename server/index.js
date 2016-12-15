@@ -267,6 +267,49 @@ app.post('/addStudent', function(request, response)
 
 });
 
+app.use(bodyParser.json());
+
+app.post('/searchByMark',function(request, response){
+    var mark;
+    var studenti=[];
+    console.log("sono qui");
+    response.writeHead(200, {'Content-Type': 'application/json'})
+    if(typeof request.body.mark !== 'undefined' && request.body.mark){
+        mark=request.body.mark;
+        var lista= studentManager.getList();
+        var s=mark[0];
+        var eff12Mark="";
+        for(var i=1; i<mark.length; i++){
+            eff12Mark+=mark[i];
+        }
+        var effMark=parseInt(eff12Mark);
+        if(s == '<'){
+            for(var i=0; i<lista.length; i++){
+                if(lista[i].mark<effMark){
+                    studenti.push(lista[i]);
+                }
+            }
+        }        
+        else if(s == '>'){
+            for(var i=0; i<lista.length; i++){
+                if(lista[i].mark>effMark){
+                    studenti.push(lista[i]);
+                }
+            }
+        }  
+        var json=JSON.stringify({
+            listaStudenti: studenti
+        });
+    }
+    
+    var json=JSON.stringify({
+            listaStudenti: studenti
+        });
+    response.end(json);
+    
+    
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });

@@ -1,0 +1,28 @@
+{
+  "name": "SE2Lab2_HEROKU",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jasmine spec",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fatima123456/SE2Lab_Exam_2016_12.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fatima123456/SE2Lab_Exam_2016_12.git"
+  },
+  "homepage": "https://github.com/fatima123456/SE2Lab_Exam_2016_12.git#readme",
+  "dependencies": {
+    "bind": "^0.1.7",
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "util": "^0.10.3"
+  }
+}
